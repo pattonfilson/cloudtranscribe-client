@@ -1,0 +1,22 @@
+{
+	"name": "cloudsystems/cloudtranscribe-client",
+	"description": "API Client for CloudTranscribe",
+	"type": "library",
+	"require": {
+		"php": ">=7.2.5",
+		"guzzlehttp/guzzle": "^7.2"
+	},
+	"license": "AGPLv3",
+	"authors": [
+		{
+			"name": "Craig Rodway",
+			"email": "craig@clouddataservice.co.uk"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"CloudSystems\\CloudTranscribe\\": "src/"
+		}
+	},
+	"prefer-stable": true
+}
