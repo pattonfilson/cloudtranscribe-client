@@ -61,6 +61,8 @@ trait ManagesJobs
 				break;
 		}
 
+		if ( ! $fh) throw new BaseException("Could not open file for sending.");
+
 		$result = $this->post('jobs', [
 			'multipart' => [
 				[ 'name' => 'file', 'contents' => $fh ],

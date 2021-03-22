@@ -90,6 +90,8 @@ trait MakesHttpRequests
 		if ( ! empty($params)) {
 			if ($verb === 'GET') {
 				$options['query'] = $params;
+			} elseif (isset($params['multipart'])) {
+				$options = $params;
 			} else {
 				$options['form_params'] = $params;
 			}
