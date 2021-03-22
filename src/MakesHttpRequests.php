@@ -114,6 +114,9 @@ trait MakesHttpRequests
 	 */
 	private function handleRequestError(ResponseInterface $response)
 	{
+		$json = json_decode((string) $response->getBody(), true);
+		$errors = $json['messages'] ?? [];
+
 		if ($response->getStatusCode() == 401) {
 			throw new UnauthorisedException();
 		}
@@ -127,14 +130,14 @@ trait MakesHttpRequests
 		}
 
 		if ($response->getStatusCode() == 422) {
-			throw new ValidationException(json_decode((string) $response->getBody(), true));
+			throw new ValidationException(implode('. ', $errors));
 		}
 
 		if ($response->getStatusCode() == 429) {
 			throw new TooManyRequestsException();
 		}
 
-		throw new ApiException((string) $response->getBody());
+		throw new ApiException(implode('. ', $errors));
 	}
 
 
