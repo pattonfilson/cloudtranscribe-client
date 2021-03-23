@@ -10,6 +10,7 @@ class CloudTranscribe
 
 
 	use MakesHttpRequests,
+		Actions\ManagesWebhooks,
 		Actions\ManagesJobs;
 
 
@@ -71,6 +72,8 @@ class CloudTranscribe
 		if (empty($uri)) {
 			throw new BaseException("No API URI provided.");
 		}
+
+		$this->webhookSignatureKey = $config['webhook_signature_key'] ?? null;
 
 		$guzzleDefaults = [
 			'base_uri' => $uri,
