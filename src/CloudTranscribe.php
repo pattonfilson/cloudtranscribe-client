@@ -4,6 +4,8 @@ namespace CloudSystems\CloudTranscribe;
 
 use GuzzleHttp\Client as HttpClient;
 
+use CloudSystems\CloudTranscribe\Exceptions\BaseException;
+
 
 class CloudTranscribe
 {
