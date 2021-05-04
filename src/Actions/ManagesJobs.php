@@ -68,19 +68,19 @@ trait ManagesJobs
 
 		$fields[] = ['name' => 'file', 'contents' => $fh];
 
-		if (isset($settings['channel_identification']) && $settings['channel_identification'] === true) {
+		if (isset($settings['channel_identification']) && $settings['channel_identification'] == true) {
 			$fields[] = ['name' => 'channel_identification', 'contents' => 'true'];
 		}
 
-		if (isset($settings['show_speaker_labels']) && $settings['show_speaker_labels'] === true) {
+		if (isset($settings['show_speaker_labels']) && $settings['show_speaker_labels'] == true) {
 			$fields[] = ['name' => 'show_speaker_labels', 'contents' => 'true'];
 		}
 
-		if (isset($settings['max_speaker_labels']) && $settings['max_speaker_labels'] === true) {
+		if (isset($settings['max_speaker_labels']) && strlen($settings['max_speaker_labels'])) {
 			$fields[] = ['name' => 'max_speaker_labels', 'contents' => (int) $settings['max_speaker_labels']];
 		}
 
-		if (isset($settings['lang']) && $settings['lang'] === true) {
+		if (isset($settings['lang']) && strlen($settings['lang'])) {
 			$fields[] = ['name' => 'lang', 'contents' => $settings['lang']];
 		}
 
